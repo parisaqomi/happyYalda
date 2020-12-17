@@ -7,8 +7,18 @@
     </div>
     <div class="col-12">
       <b-modal id="my-modal" scrollable centered>
-        <p v-html="randomOmen.omen"></p>
+        <b-card bg-variant="danger" text-variant="white" title="فال شما">
+  <b-card-text>
+    <p v-html="randomOmen.omen"></p>
+  </b-card-text>
+</b-card>
+        <b-card border-variant="danger" text-variant="dark" title="تفسیر فال شما">
+  <b-card-text>
         <p>{{randomOmen.meaning}}</p>
+
+  </b-card-text>
+</b-card>
+        
         <template #modal-footer>
           <div class="w-100 d-none"> 
           </div>
@@ -19,6 +29,7 @@
 </template>
 <script>
 import omensData from "../../faal.json";
+import generateRandomIntegerWithin from "../helpers/randomGenerator"
 
 export default {
   name: "RandomOmen",
@@ -33,10 +44,12 @@ export default {
   },
   methods: {
     randomFaal: function() {
-      let rand = Math.random();
-      const idx = Math.floor(rand * this.omens.length);
-      this.randomOmen = this.omens[idx];
-      return this.randomOmen;
+      let upperBound = this.omens.length;
+      let lowerBound = 0;
+      let randomIndex = generateRandomIntegerWithin(lowerBound,upperBound);
+      let randomOmen = this.omens[randomIndex];
+      this.randomOmen = randomOmen;
+      return;
     }
   }
 };
