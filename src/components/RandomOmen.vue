@@ -5,7 +5,6 @@
       <p class="my-3">برای گرفتن فال امشبتون فقط کافیه دکمه زیر رو فشار بدی</p>
       <b-button class="my-3" @click="randomFaal" variant="danger" v-b-modal="'my-modal'">نمایش فال</b-button>
     </div>
-    <div class="footer-image w-100"></div>
     <div class="col-12">
       <b-modal id="my-modal" scrollable centered>
         <p>{{randomOmen.omen}}</p>
@@ -18,16 +17,7 @@
     </div>
   </div>
 </template>
-<style>
-.footer-image {
-   
-}
 
-.footer-image:after {
-    content: url(/pubilc/img/1x/yalda-bg.png);
-    top: 0;
-}
-</style>
 <script>
 import omensData from "../../faal.json";
 

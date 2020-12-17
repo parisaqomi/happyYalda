@@ -39,5 +39,14 @@ body {
 }
 .h-90 {
   height: 90vh;
+} 
+.footer-image {
+   
 }
+
+.footer-image:after {
+    content: url(/pubilc/img/1x/yalda-bg.png);
+    top: 0;
+}
+
 </style>
