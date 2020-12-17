@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "iransans";
+    src: url(../fonts/ttf/IRANSansWeb.ttf), url(../fonts/eot/IRANSansWeb.eot), url(../fonts/woff/IRANSansWeb.woff), url(../fonts/woff2/IRANSansWeb.woff2);
+}
+
+body {
+    font-family: 'iransans' !important;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 14px;
+    direction: rtl;
+    text-align: right;
+}
