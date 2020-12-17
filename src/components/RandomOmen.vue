@@ -7,7 +7,7 @@
     </div>
     <div class="col-12">
       <b-modal id="my-modal" scrollable centered>
-        <p>{{randomOmen.omen}}</p>
+        <p v-html="randomOmen.omen"></p>
         <p>{{randomOmen.meaning}}</p>
         <template #modal-footer>
           <div class="w-100 d-none"> 
@@ -17,7 +17,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import omensData from "../../faal.json";
 
@@ -34,7 +33,8 @@ export default {
   },
   methods: {
     randomFaal: function() {
-      const idx = Math.floor(Math.random() * this.omens.length);
+      let rand = Math.random();
+      const idx = Math.floor(rand * this.omens.length);
       this.randomOmen = this.omens[idx];
       return this.randomOmen;
     }
