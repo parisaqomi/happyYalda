@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="container d-flex justify-content-center align-items-center h-90">
+    <div class="container justify-content-center align-items-center h-90">
+      <img id="logo" src="./assets/images/pomegranate-icon.png" alt="">
       <RandomOmen />
     </div>
     <div class="footer-image">
@@ -27,6 +28,10 @@ export default {
     url(assets/fonts/eot/IRANSansWeb.eot),
     url(assets/fonts/woff/IRANSansWeb.woff),
     url(assets/fonts/woff2/IRANSansWeb.woff2);
+}
+
+#logo{
+  width:100%;
 }
 
 body {
