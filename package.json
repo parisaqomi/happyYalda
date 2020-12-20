@@ -14,6 +14,7 @@
     "typed.js": "^2.0.11",
     "vue": "^2.6.12",
     "vue-loading-overlay": "^3.4.2",
+    "vue-typed-js": "^0.1.2",
     "vuejs-overlay": "0.0.28"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 <template>
   <div class="row text-center">
     <div class="col-12">
+      
       <h3 class="my-3">یلداتون مبارک</h3>
       <p class="my-3">
         یکی از آئین‌های ایرانیان در شب یلدا خواندن شعرهای حافظ و تفاّل بر دیوان
@@ -16,25 +17,33 @@
     </div>
     <div class="col-12">
       <b-modal id="my-modal" scrollable centered>
-        <div id="loadingMessage" v-show="isLoading"></div>
+        <div v-show="isLoading">
+          <vue-typed-js
+            :strings="['نیت کنید', message]"
+            :fadeOut="true"
+            :fadeOutDelay="500"
+            :typeSpeed="speed"
+            @onComplete="onFinish"
+          >
+            <p class="typing"></p>
+          </vue-typed-js>
+        </div>
         <div v-show="!isLoading">
-
-        <b-card
-          bg-variant="danger"
-          text-variant="white"
-          title="فال شما"
-          class="mb-2"
-        >
-          <b-card-text>
-            <p v-html="randomOmen.omen"></p>
-          </b-card-text>
-        </b-card>
-        <b-card border-variant="danger" text-variant="dark" title="تفسیر  ">
-          <b-card-text>
-            <p>{{ randomOmen.meaning }}</p>
-          </b-card-text>
-        </b-card>
-
+          <b-card
+            bg-variant="danger"
+            text-variant="white"
+            title="فال شما"
+            class="mb-2"
+          >
+            <b-card-text>
+              <p v-html="randomOmen.omen"></p>
+            </b-card-text>
+          </b-card>
+          <b-card border-variant="danger" text-variant="dark" title="تفسیر  ">
+            <b-card-text>
+              <p>{{ randomOmen.meaning }}</p>
+            </b-card-text>
+          </b-card>
         </div>
         <template #modal-footer>
           <div class="w-100 d-none"></div>
@@ -46,8 +55,6 @@
 <script>
 import omensData from "../../faal.json";
 import generateRandomIntegerWithin from "../helpers/randomGenerator";
-import Typed from "typed.js";
-// Import component
 
 export default {
   name: "RandomOmen",
@@ -62,9 +69,7 @@ export default {
       message:
         "ای حافظ شیرازی! تو محرم هر رازی! تو را به خدا و به شاخ نباتت قسم می‌دهم که هر چه صلاح و مصلحت می‌بینی برایم آشکار و آرزوی مرا برآورده سازی.",
 
-      typeOptions: {
-        strings: [this.message],
-      },
+      speed: 80,
     };
   },
   methods: {
@@ -81,16 +86,12 @@ export default {
     },
     openHandle() {
       this.isLoading = true;
-      let typed = new Typed('#loadingMessage', this.typeOptions);
-      setTimeout(() => {
-        this.randomFaal();
-        this.isLoading = false;
-      }, 5000);
-      console.log(typed);
+      this.randomFaal();
     },
-    onClosed() {
-      this.opened = false;
-      this.visible = false;
+    onFinish() {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 3000);
     },
   },
 };
